@@ -90,3 +90,5 @@ article.card { border-radius: 1.75rem; }
   .split-prose .prose-rt > h2 { margin-top: 3rem; }
   .split-prose .prose-rt > h2 + * { margin-top: 1.5rem; }
 }
+.btn-box-dark { display: inline-block; border: 2px solid var(--color-ink); padding: .65rem 1.4rem; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; background: var(--color-ink); transition: background .15s, color .15s; text-align: center; }
+.btn-box-dark:hover { background: #fff; color: var(--color-ink); }

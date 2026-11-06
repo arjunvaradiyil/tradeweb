@@ -148,24 +148,23 @@ export default async function HomePage() {
       {!!products.length && (
         <section className="section bg-soft" id="buy">
           <div className="container-x">
-            <Reveal>
-              <h2 className="h2">{home.purchase?.heading}</h2>
-              {home.purchase?.subheading && <p className="mt-2 text-muted">{home.purchase.subheading}</p>}
-            </Reveal>
-            <div className="mt-8 flex snap-x gap-5 overflow-x-auto pb-4">
+            <div className="ed-head"><h2 className="ed-title max-w-4xl">{home.purchase?.heading}</h2></div>
+            {home.purchase?.subheading && <p className="mt-6 max-w-2xl text-lg text-muted">{home.purchase.subheading}</p>}
+            <div className="mt-12 flex snap-x gap-8 overflow-x-auto pb-4">
               {products.map((c) => {
                 const img = mediaUrl(c.image, 'card')
                 return (
-                  <article key={c.id} className="card w-72 shrink-0 snap-start overflow-hidden">
-                    <div className="photo-flat relative aspect-[4/3] rounded-none">
-                      {img && <Image src={img} alt={mediaAlt(c.image, c.title)} fill sizes="288px" className="object-cover" />}
+                  <article key={c.id} className="flex w-[19rem] shrink-0 snap-start flex-col">
+                    <div className="photo-flat relative aspect-[4/3]">
+                      {img && <Image src={img} alt={mediaAlt(c.image, c.title)} fill sizes="304px" className="object-cover" />}
                     </div>
-                    <div className="grid gap-2 p-4">
-                      <h3 className="font-semibold leading-snug">{c.title}</h3>
-                      {c.instructor && <p className="text-xs text-muted">Instructor: {c.instructor}</p>}
-                      <p className="font-bold text-navy">{c.price} {c.originalPrice && <span className="ml-1 text-sm font-normal text-muted line-through">{c.originalPrice}</span>}</p>
-                      <a href={c.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary !py-2">Buy Now</a>
-                    </div>
+                    <h3 className="mt-5 min-h-[2.75rem] text-lg font-medium uppercase leading-snug tracking-tight">{c.title}</h3>
+                    {c.instructor && <p className="meta mt-1">Instructor: {c.instructor}</p>}
+                    <p className="mt-4 flex items-baseline gap-3">
+                      <span className="text-3xl font-semibold tracking-tight text-ink">{c.price}</span>
+                      {c.originalPrice && <span className="text-base text-muted line-through">{c.originalPrice}</span>}
+                    </p>
+                    <a href={c.url} target="_blank" rel="noopener noreferrer" className="btn-box-dark mt-5">Buy now</a>
                   </article>
                 )
               })}
