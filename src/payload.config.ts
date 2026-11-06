@@ -1,3 +1,4 @@
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
@@ -23,6 +24,8 @@ import { SiteSettings } from './globals/SiteSettings'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const DATABASE_URL = process.env.DATABASE_URL || 'file:./tradmax.db'
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -42,9 +45,10 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || '',
   serverURL: process.env.NEXT_PUBLIC_SITE_URL,
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
-  db: sqliteAdapter({
-    client: { url: process.env.DATABASE_URL || 'file:./tradmax.db' },
-  }),
+  // A mongodb:// or mongodb+srv:// DATABASE_URL (production) uses MongoDB; anything else (default) uses a local SQLite file.
+  db: DATABASE_URL.startsWith('mongodb')
+    ? mongooseAdapter({ url: DATABASE_URL })
+    : sqliteAdapter({ client: { url: DATABASE_URL } }),
   sharp,
   plugins: [
     seoPlugin({
