@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Trademax brand theme for the Payload admin (matches the frontend tokens) */
+:root {
+  --font-body: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --tm-brand: #0a8f5b;
+  --tm-brand-dark: #07653f;
+  --tm-navy: #0b2a4a;
+  --tm-soft: #f4f8fb;
+  --tm-line: #e6ebf0;
+  --style-radius-s: 6px;
+  --style-radius-m: 10px;
+  --style-radius-l: 16px;
+}
+
+html[data-theme='light'] {
+  --theme-bg: #fff;
+  --theme-input-bg: #fff;
+  --theme-elevation-0: #fff;
+  --theme-elevation-50: var(--tm-soft);
+  --theme-elevation-100: #edf3f8;
+  --theme-elevation-150: var(--tm-line);
+  --theme-elevation-800: var(--tm-navy);
+  --theme-elevation-900: var(--tm-navy);
+  --theme-elevation-1000: #0b1b2b;
+  --theme-success-500: var(--tm-brand);
+}
+
+body, .template-default, input, textarea, select, button { font-family: var(--font-body); }
+h1, h2, h3, .doc-header__title { font-weight: 700; letter-spacing: -0.01em; }
+
+/* Primary buttons and links in brand green */
+.btn--style-primary { --bg-color: var(--tm-brand); --hover-bg: var(--tm-brand-dark); --color: #fff; --hover-color: #fff; --box-shadow: none; border-radius: 9999px; }
+.btn--style-primary:hover { background: var(--tm-brand-dark); }
+.btn--style-secondary { border-radius: 9999px; }
+a:not(.btn):hover { color: var(--tm-brand); }
+.nav__link--active, .nav__link:hover { color: var(--tm-brand); }
+.nav__link--active::before { background: var(--tm-brand); }
+.field-type input:focus, .field-type textarea:focus, .rs__control--is-focused { border-color: var(--tm-brand) !important; box-shadow: 0 0 0 2px rgb(10 143 91 / 0.15) !important; }
+.checkbox-input__input--checked, .checkbox-input input:checked + .checkbox-input__icon { background: var(--tm-brand); border-color: var(--tm-brand); }
+
+/* Sidebar + cards */
+.template-default__nav-wrap, .nav { background: var(--tm-soft); border-right: 1px solid var(--tm-line); }
+.card { border-radius: var(--style-radius-l); transition: box-shadow .2s, transform .2s; }
+.card:hover { box-shadow: 0 8px 24px rgb(11 42 74 / 0.08); transform: translateY(-1px); }
+
+/* Login screen */
+.login { background: linear-gradient(160deg, #fff 0%, var(--tm-soft) 60%, #dff3ea 100%); }
