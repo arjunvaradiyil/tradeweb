@@ -9,7 +9,6 @@ import { ScriptInjector } from '@/components/ScriptInjector'
 import { getCourseBySlug, getPageBySlug } from '@/lib/queries'
 import { mediaAlt, mediaUrl } from '@/lib/utils'
 
-export const revalidate = 300
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

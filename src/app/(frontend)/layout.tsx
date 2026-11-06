@@ -14,6 +14,9 @@ import './styles.css'
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-poppins', display: 'swap' })
 
+// Content comes from the CMS database, so render per request: the build must not need database access.
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: 'Trademax Academy | Best Trading Academy In Keralam', template: '%s' },

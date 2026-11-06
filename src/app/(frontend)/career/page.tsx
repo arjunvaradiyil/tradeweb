@@ -6,7 +6,6 @@ import { RichText } from '@/components/RichText'
 import { ScriptInjector } from '@/components/ScriptInjector'
 import { getCollection, getPageBySlug } from '@/lib/queries'
 
-export const revalidate = 300
 export const metadata: Metadata = { title: 'Careers | Trademax Academy', description: 'Join the Trademax Academy team.', alternates: { canonical: '/career' } }
 
 export default async function CareerPage() {

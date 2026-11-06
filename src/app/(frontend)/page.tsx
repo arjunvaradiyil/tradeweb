@@ -14,7 +14,6 @@ import { RichText } from '@/components/RichText'
 import { getCollection, getCourses, getHome, getPosts, getSettings } from '@/lib/queries'
 import { mediaAlt, mediaUrl } from '@/lib/utils'
 
-export const revalidate = 300
 
 export default async function HomePage() {
   const [home, settings, allCourses, posts, team, highlights] = await Promise.all([

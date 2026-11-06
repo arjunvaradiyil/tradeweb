@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { PostCard } from '@/components/PostCard'
 import { getPosts } from '@/lib/queries'
 
-export const revalidate = 300
 export const metadata: Metadata = {
   title: 'Trading & Market Blog | Trademax Academy',
   description: 'Stock market, forex and crypto trading insights, guides and market analysis from Trademax Academy.',
